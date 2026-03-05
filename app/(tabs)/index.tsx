@@ -1,29 +1,24 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
+import { ScrollView, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function Index() {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Bem-vindo</Text>
-        <Text style={styles.subtitle}>Sua página inicial</Text>
-      </View>
+      <ThemedView style={styles.card}>
+        <ThemedText style={styles.cardTitle}>Card 1</ThemedText>
+        <ThemedText style={styles.cardText}>Conteúdo do card</ThemedText>
+      </ThemedView>
 
-      <View style={styles.content}>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Card 1</Text>
-          <Text style={styles.cardText}>Conteúdo do card</Text>
-        </View>
+      <ThemedView style={styles.card}>
+        <ThemedText style={styles.cardTitle}>Card 2</ThemedText>
+        <ThemedText style={styles.cardText}>Conteúdo do card</ThemedText>
+      </ThemedView>
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Card 2</Text>
-          <Text style={styles.cardText}>Conteúdo do card</Text>
-        </View>
-
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Card 3</Text>
-          <Text style={styles.cardText}>Conteúdo do card</Text>
-        </View>
-      </View>
+      <ThemedView style={styles.card}>
+        <ThemedText style={styles.cardTitle}>Card 3</ThemedText>
+        <ThemedText style={styles.cardText}>Conteúdo do card</ThemedText>
+      </ThemedView>
     </ScrollView>
   );
 }
@@ -31,27 +26,9 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  header: {
-    padding: 20,
-    backgroundColor: '#007AFF',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#fff',
-    marginTop: 5,
-  },
-  content: {
-    padding: 15,
+    padding: 16,
   },
   card: {
-    backgroundColor: '#fff',
     borderRadius: 10,
     padding: 15,
     marginBottom: 15,
@@ -64,11 +41,9 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
   },
   cardText: {
     fontSize: 14,
-    color: '#666',
     marginTop: 8,
   },
 });
