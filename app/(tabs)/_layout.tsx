@@ -1,38 +1,49 @@
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useThemeColor } from '@/hooks/use-theme-color';
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
-function Header() {
-  const colorScheme = useColorScheme();
-
+function Header({ backgroundColor }: { backgroundColor: string }) {  
   return(
-    <View style={{padding: 16, paddingTop: 40, backgroundColor: Colors[colorScheme ?? 'light'].background}}>
-      <Image source={require('../../assets/images/icon.png')} style={{ width: 48, height: 48 }} />
-    </View>
+    <View style={[styles.header, { backgroundColor: backgroundColor }]}>
+      <Image source={require('../../assets/images/icon.png')} style={styles.logo} />
+    </View> 
   );
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const color = useThemeColor({ light: '', dark: '' }, 'tint');
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: color,
         headerShown: true,
-        header: () => <Header />
+        header: () => <Header backgroundColor={color} />
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
           tabBarShowLabel: false,
-          tabBarIcon: ({ color }) => <Ionicons name="home" color={color} size={24} style={{paddingTop: 4}} />,
+          tabBarIcon: ({ color }) => <Ionicons name="home" color={color} size={24} style={styles.icon} />,
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    padding: 16,
+    paddingTop: 40,
+  },
+  logo: {
+    width: 48,
+    height: 48,
+  },
+  icon: {
+    paddingTop: 4,
+  },
+});
