@@ -1,3 +1,4 @@
+import ThemedButton from '@/components/themed-button';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { ScrollView, StyleSheet } from 'react-native';
@@ -5,6 +6,10 @@ import { ScrollView, StyleSheet } from 'react-native';
 export default function Index() {
   return (
     <ScrollView style={styles.container}>
+      <ThemedView style={styles.button}>
+        <ThemedButton title="Press me" onPress={() => alert('Button pressed!')} />
+      </ThemedView>
+
       <ThemedView style={styles.card}>
         <ThemedText style={styles.cardTitle}>Card 1</ThemedText>
         <ThemedText style={styles.cardText}>Conteúdo do card</ThemedText>
@@ -30,8 +35,8 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: 10,
-    padding: 15,
-    marginBottom: 15,
+    padding: 16,
+    marginBottom: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -39,11 +44,14 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   cardText: {
     fontSize: 14,
     marginTop: 8,
+  },
+  button: {
+    marginBottom: 16,
   },
 });
