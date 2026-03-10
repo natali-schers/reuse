@@ -1,6 +1,6 @@
-import ThemedButton from '@/components/themed-button';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import ThemedButton from '@/components/ThemedButton';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
 import { ScrollView, StyleSheet } from 'react-native';
 
 export default function Index() {
