@@ -14,13 +14,15 @@ function Header({ backgroundColor }: { backgroundColor: string }) {
 
 export default function TabLayout() {
   const color = useThemeColor({ light: '', dark: '' }, 'tint');
+  const backgroundColor = useThemeColor({ light: '', dark: '' }, 'background');
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: color,
         headerShown: true,
-        header: () => <Header backgroundColor={color} />
+        header: () => <Header backgroundColor={color} />,
+        tabBarStyle: { backgroundColor: backgroundColor },
       }}>
       <Tabs.Screen
         name="index"
